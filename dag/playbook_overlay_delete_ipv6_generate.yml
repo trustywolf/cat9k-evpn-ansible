@@ -1,0 +1,77 @@
+---
+
+- name: Automated VXLAN deployment with BGP EVPN L2/L3 underlay w/ Spine
+  hosts: leaf
+  gather_facts: no 
+
+
+  tasks:
+
+        - block:
+
+          - name: Set playbook name and mode
+            set_fact:
+              playbook_name: "overlay_ipv6"
+              playbook_mode: "-del-gen"
+
+          - name: Cleanup host_vars/ipv6_delete_vars dir
+            run_once: true
+            file:
+              state: "{{ item }}"
+              path: "host_vars/ipv6_delete_vars"
+            with_items:
+              - absent
+              - directory
+              
+          - name: Collect vars from overlay_db.yml
+            run_once: true
+            include_vars:
+              file: group_vars/overlay_db.yml
+              name: to_compare
+          
+          - name: Collect vars from ipv6_delete_vars.yml
+            run_once: true
+            include_vars:
+              file: group_vars/ipv6_delete_vars.yml
+              name: user_input
+
+          - name: Collect "show run nve"
+            cli_command:
+              command: show run nve
+            register: command_output
+            
+          - name: Collect vars from hostvars leafs
+            run_once: true
+            include_vars:
+              file: host_vars/node_vars/{{ inventory_hostname }}.yml
+              name: hostvars_leaf_data
+                
+          - name: Process data
+            delete_ipv6:
+              hostvars: "{{ command_output.stdout_lines }}"
+              leaf_data:  "{{ hostvars_leaf_data }}"
+              overlay_db: "{{ to_compare }}"
+              userinput: "{{ user_input }}"
+            register: module_output
+              
+          - name: Copying configurations to the repective files ( <hostname>.yml ) under host_vars/ipv6_delete_vars folder
+            when: module_output['yaml'] != '{}\n'
+            copy:
+              dest: host_vars/ipv6_delete_vars/{{ inventory_hostname }}.yml
+              content: "{{ module_output['yaml'] }}"
+
+          rescue:
+            - name: Record failure
+              include_tasks: ../subtasks/common_subtasks/subtask_rescue_task.yml
+
+
+- name: Display output file info
+  hosts: localhost
+  gather_facts: no
+  run_once: True
+
+  tasks:
+    - debug:
+        msg: 
+        - "Please refer the following folders/files"
+        - "'overlay_ipv6-del-gen-err.log' in 'log_directory' folder for error informations if any"

@@ -1,0 +1,163 @@
+    1  sudo su
+    2  sudo su
+    3  sudo si
+    4  sudo su
+    5  ifconfig
+    6  sudo apt install net-tools
+    7  ifconfig
+    8  sudo su
+    9  sudo reboot
+   10  sudo su
+   11  plank
+   12  sudo apt-get install libxss1 libappindicator1 libindicator7
+   13  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+   14  sudo apt install ./google-chrome*.deb
+   15  sudo apt update
+   16  sudo apt upgrade -y
+   17  sudo xfce4-panel 
+   18  sudo install xfce4-panel 
+   19  sudo apt install xfce4-panel 
+   20  sudo reboot
+   21  sudo shutdown now -h
+   22  sudo su
+   23  ping google.com
+   24  ifconfig -a
+   25  ping 198.18.1.15
+   26  ssh cisco@198.18.1.15
+   27  pwd
+   28  python --version
+   29  which python
+   30  sudo -
+   31  sudo
+   32  apt install python3
+   33  sudo -s
+   34  cd
+   35  virtualenv --python=/usr/bin/python ansible
+   36  virtualenv --python=/usr/bin/python3 ansible
+   37  source ansible/bin/activate
+   38  sudo apt install pip3
+   39  sudo apt install pip
+   40  pip install ansible 
+   41  git clone https://github.com/Cat9kEVPN/cat9k-evpn-ansible.git
+   42  sudo apt install git
+   43  git clone https://github.com/Cat9kEVPN/cat9k-evpn-ansible.git
+   44  l
+   45  alias l="ls -lta | more"
+   46  l
+   47  cd cat9k-evpn-ansible/
+   48  git branch
+   49  git checkout -b dev origin/development
+   50  git branch -a
+   51  cd
+   52  cd cat9k-evpn-ansible/
+   53  l
+   54  pip install -r requirements.txt 
+   55  git branch
+   56  l
+   57  cd config_examples/
+   58  l
+   59  cat playbook_cleanup.yml 
+   60  cat ../dag/playbook_cleanup.yml 
+   61  ssh cisco@198.18.1.15
+   62  ssh cisco@198.18.1.16
+   63  ssh cisco@198.18.1.17
+   64  ssh cisco@198.18.1.18
+   65  ssh cisco@198.18.1.17
+   66  ping 198.18.1.17
+   67  ping 198.18.1.19
+   68  ping 198.18.1.18
+   69  ping 198.18.1.2
+   70  ping 198.18.1.1
+   71  ping 198.18.1.11
+   72  ping 198.18.1.17
+   73  ssh cisco@198.18.1.11
+   74  ssh cisco@198.18.1.12
+   75  ssh cisco@198.18.1.13
+   76  ssh cisco@198.18.1.14
+   77  ssh cisco@198.18.1.15
+   78  ssh cisco@198.18.1.16
+   79  ssh cisco@198.18.1.17
+   80  ssh cisco@198.18.1.18
+   81  l
+   82  cd borderspine/
+   83  l
+   84  vim inventory.yml 
+   85  cp inventory.yml ../
+   86  cd ..
+   87  vim inventory.yml 
+   88  l
+   89  ansible playbook_output.yml -i ./inventory.yml 
+   90  ansible-playbook playbook_output.yml -i ./inventory.yml 
+   91  ls -lta
+   92  cd config_examples/
+   93  l
+   94  cd ..
+   95  l
+   96  mkdir output
+   97  ansible-playbook playbook_output.yml -i ./inventory.yml 
+   98  vim playbook_output.yml 
+   99  vim playbook_preview.yml 
+  100  cd config_examples/
+  101  cd ..
+  102  l
+  103  vim playbook_commit.yml 
+  104  l
+  105  cat README.md 
+  106  ansible-playbook playbook_output.yml -i ./inventory.yml --extra-vars "design=dag_unicast_replication_type_ingress"
+  107  vim playbook_commit.yml 
+  108  vim playbook_output.yml 
+  109  ansible-playbook playbook_output.yml -i ./inventory.yml --extra-vars "design=dag_unicast_replication_type_ingress"
+  110  l
+  111  cd dag_unicast_replication_type_ingress/
+  112  l
+  113  cd group_vars
+  114  l
+  115  vim all.yml 
+  116  cd ..
+  117  ansible-playbook playbook_output.yml -i ./inventory.yml --extra-vars "design=dag_unicast_replication_type_ingress"
+  118  l
+  119  cd log_directory/
+  120  l
+  121  cat show_output-err.log 
+  122  cd ..
+  123  cd dag_unicast_replication_type_ingress/
+  124  l
+  125  cd host_vars/
+  126  l
+  127  cd node_vars/
+  128  l
+  129  cd ..
+  130  l
+  131  cd ..
+  132  l
+  133  cd group_vars/
+  134  l
+  135  vim all.yml 
+  136  pwd
+  137  cd ../dag
+  138  l
+  139  cd ..
+  140  cd ../dag
+  141  l
+  142  vim all.yml 
+  143  cd ../
+  144  cd ../config_examples/
+  145  ansible-playbook playbook_output.yml -i ./inventory.yml --extra-vars "design=dag_unicast_replication_type_ingress"
+  146  l
+  147  cd output/
+  148  l
+  149  cd ..
+  150  pwd
+  151  cd dag_unicast_replication_type_ingress/
+  152  l
+  153  cd ..
+  154  l
+  155  cd output/
+  156  l
+  157  cat Leaf-05-show_commands.txt 
+  158  cd ..
+  159  l
+  160  cd output/
+  161  l
+  162  history
+  163  history > ~/backuphistory.txt

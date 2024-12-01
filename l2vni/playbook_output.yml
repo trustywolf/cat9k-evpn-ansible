@@ -1,0 +1,123 @@
+---
+
+- name: collect outputs after config 
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+
+  vars:
+    input_vars_path: "./"
+
+
+  tasks:
+
+        - block:
+
+          - name: Set playbook name and mode
+            set_fact:
+              playbook_name: "show_output"
+              playbook_mode: ""
+
+          - name: Create and cleanup 'output' folder
+            run_once: true
+            block:
+            - name: Remove files in 'output' folder
+              file:
+                state: "{{ item }}"
+                path: "./output"
+              with_items:
+                - absent
+                - directory
+
+            - name: Create .gitkeep
+              file:
+                path: "./output/.gitkeep"
+                state: touch
+
+          - name: Load variables from group_vars/underlay_config.yml input file
+            run_once: true
+            include_vars: 
+              file: "{{ input_vars_path }}group_vars/underlay_config.yml"
+
+          - name: Load variables from group_vars/overlay_db.yml input file
+            run_once: true
+            include_vars: 
+              file: "{{ input_vars_path }}group_vars/overlay_db.yml"
+
+          - name: construct show commands from host var file for leafs
+            when: inventory_hostname in groups['leaf']
+            copy:
+                dest: "output/{{inventory_hostname}}-show_commands.txt" 
+                content: "{{ lookup('template', '../templates/leaf_show_command.j2') }}"
+
+          - name: cat show commands file of leaf
+            when: inventory_hostname in groups['leaf']
+            shell: cat "output/{{inventory_hostname}}-show_commands.txt"
+            register: leaf_command_buf
+            
+          - name: run show command on Leafs
+            when: inventory_hostname in groups['leaf']
+            ios_command:
+               commands:
+                   "{{ leaf_command_buf.stdout_lines }}" 
+
+            register: leaf_output
+
+          - name: save outputs to output file for Leafs
+            when: inventory_hostname in groups['leaf']
+            copy:
+                dest: "output/{{inventory_hostname}}-show_output.txt" 
+                content: |
+                  "{{leaf_command_buf.stdout_lines | zip(leaf_output.stdout_lines) | to_nice_yaml}}"   
+
+          - name: construct show commands from host var file for Spines
+            when: inventory_hostname in groups['spine']
+            copy:
+                dest: "output/{{inventory_hostname}}-show_commands.txt" 
+                content: "{{ lookup('template', '../templates/spine_show_command.j2') }}"
+
+          - name: cat show commands file of Spines
+            when: inventory_hostname in groups['spine']
+            shell: cat "output/{{inventory_hostname}}-show_commands.txt"
+            register: spine_command_buf
+            
+          - name: run show command on Spines
+            when: inventory_hostname in groups['spine']
+            ios_command:
+               commands:
+                   "{{ spine_command_buf.stdout_lines }}" 
+
+            register: spine_output
+
+          - name: save outputs to output file for Spines
+            when: inventory_hostname in groups['spine']
+            copy:
+                dest: "output/{{inventory_hostname}}-show_output.txt" 
+                content: |
+                  "{{spine_command_buf.stdout_lines | zip(spine_output.stdout_lines) | to_nice_yaml}}"   
+
+          - name: Display output file info
+            run_once: true
+            debug:
+              msg: Please refer to <hostname>-show_commands.txt  in 'output' folder
+
+          - name: Display output file info
+            run_once: true
+            debug:
+              msg: Please refer to <hostname>-show_output.txt in 'output' folder
+
+          rescue:
+            - name: Record failure
+              include_tasks: ../subtasks/common_subtasks/subtask_rescue_task.yml
+
+
+- name: Display output info
+  hosts: localhost
+  gather_facts: no
+  run_once: True
+
+  tasks:
+    - debug:
+        msg: 
+        - "Please refer the following folders/files"
+        - "'show_output-err.log' in 'log_directory' folder for error informations if any"

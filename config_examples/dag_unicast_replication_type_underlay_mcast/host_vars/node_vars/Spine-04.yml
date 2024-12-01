@@ -1,0 +1,100 @@
+hostname: 'Spine-04'
+
+routing:
+  ipv4_multi: 'yes'
+
+interfaces:
+
+  Loopback0:
+    name: 'Routing Loopback'
+    ip_address: '172.16.255.4'
+    subnet_mask: '255.255.255.255'
+    loopback: 'yes'
+    pim_enable: 'no'
+
+  Loopback1:
+    name: 'MSDP Loopback'
+    ip_address: '172.16.254.4'
+    subnet_mask: '255.255.255.255'
+    loopback: 'yes'
+    pim_enable: 'yes'
+  
+  Loopback2:
+    name: 'AnycastRP Loopback'
+    ip_address: '172.16.255.255'
+    subnet_mask: '255.255.255.255'
+    loopback: 'yes'
+    pim_enable: 'yes'
+
+  GigabitEthernet1/0/1:
+    name: 'Backbone interface to Leaf-04'
+    ip_address: '172.16.24.4'
+    subnet_mask: '255.255.255.0'
+    loopback: 'no'
+    pim_enable: 'yes'
+
+  GigabitEthernet1/0/2:
+    name: 'Backbone interface to Leaf-05'
+    ip_address: '172.16.25.4'
+    subnet_mask: '255.255.255.0'
+    loopback: 'no'
+    pim_enable: 'yes' 
+
+  GigabitEthernet1/0/3:
+    name: 'Backbone interface to Leaf-06'
+    ip_address: '172.16.26.4'
+    subnet_mask: '255.255.255.0'
+    loopback: 'no'
+    pim_enable: 'yes' 
+
+  GigabitEthernet1/0/4:
+    name: 'Backbone interface to Leaf-07'
+    ip_address: '172.16.27.4'
+    subnet_mask: '255.255.255.0'
+    loopback: 'no'
+    pim_enable: 'yes' 
+
+  GigabitEthernet1/0/7:
+    name: 'Backbone interface to Spine-02'
+    ip_address: '172.16.11.3'
+    subnet_mask: '255.255.255.0'
+    loopback: 'no'
+    pim_enable: 'yes' 
+
+
+ospf:
+  router_id: '172.16.255.4'
+
+pim:
+  rp_address: '172.16.255.255'
+
+msdp:
+ '1':
+    peer_ip: '172.16.254.3'
+    source_interface: 'Loopback1'
+    remote_as: '65001'
+    
+bgp:
+  as_number: '65001'
+  router_id: 'Loopback0'
+  neighbors:
+    '172.16.255.14':
+     peer_as_number: '65001'
+     source_interface: 'Loopback0'
+     rrc: 'yes'
+
+    '172.16.255.15':
+     peer_as_number: '65001'
+     source_interface: 'Loopback0'
+     rrc: 'yes'
+     
+    '172.16.255.16':
+     peer_as_number: '65001'
+     source_interface: 'Loopback0'
+     rrc: 'yes'
+
+    '172.16.255.17':
+     peer_as_number: '65001'
+     source_interface: 'Loopback0'
+     rrc: 'yes'
+

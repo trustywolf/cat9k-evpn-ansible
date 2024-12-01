@@ -1,0 +1,367 @@
+host: Leaf-15
+stderr:
+- One or more items failed
+- - _ansible_ignore_errors: null
+    _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/global_routing.j2
+      value: global routing block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: true
+    ansible_loop_var: item
+    changed: true
+    commands:
+    - ipv6 unicast-routing
+    failed: false
+    invocation:
+      module_args:
+        backup: false
+        backup_options: null
+        commit: null
+        commit_comment: null
+        config: " \n#jinja2: lstrip_blocks: \"True\", trim_blocks: \"True\"\n\n  \n        \n
+          \      \n            ipv6 unicast-routing\n    \n        \n        \n          \n"
+        defaults: false
+        diff_ignore_lines: null
+        diff_match: none
+        diff_replace: null
+        multiline_delimiter: null
+        replace: null
+        rollback: null
+    item:
+      key: ../templates/global_routing.j2
+      value: global routing block
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/bgp_global.j2
+      value: bgp global block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: true
+    ansible_loop_var: item
+    changed: false
+    exception: "  File \"/home/cisco/ansible/lib/python3.10/site-packages/ansible_collections/ansible/netcommon/plugins/modules/cli_config.py\",
+      line 439, in main\n    run(\n  File \"/home/cisco/ansible/lib/python3.10/site-packages/ansible_collections/ansible/netcommon/plugins/modules/cli_config.py\",
+      line 340, in run\n    connection.edit_config(**kwargs)\n  File \"/home/cisco/ansible/lib/python3.10/site-packages/ansible/module_utils/connection.py\",
+      line 200, in __rpc__\n    raise ConnectionError(to_text(msg, errors='surrogate_then_replace'),
+      code=code)\n"
+    failed: true
+    invocation:
+      module_args:
+        backup: false
+        backup_options: null
+        commit: null
+        commit_comment: null
+        config: " \n#jinja2: lstrip_blocks: \"True\", trim_blocks: \"True\"\n\n!\n  router
+          bgp 65001\n  \n            bgp log-neighbor-changes\n            bgp router-id 172.16.255.15\n
+          \     no bgp default ipv4-unicast\n  \n              \n            template peer-session
+          EVPN-PEER-SESSION\n          remote-as 65001\n          update-source Lo0\n  \n
+          \           template peer-policy LEAF-EVPN-PEER-POLICY\n          send-community
+          both\n  \n            template peer-policy SPINE-EVPN-PEER-POLICY\n          send-community
+          both\n          route-reflector-client\n  \n                      neighbor 172.16.255.3
+          inherit peer-session EVPN-PEER-SESSION\n  \n                                    neighbor
+          172.16.255.4 inherit peer-session EVPN-PEER-SESSION\n  \n                                \n"
+        defaults: false
+        diff_ignore_lines: null
+        diff_match: none
+        diff_replace: null
+        multiline_delimiter: null
+        replace: null
+        rollback: null
+    item:
+      key: ../templates/bgp_global.j2
+      value: bgp global block
+    msg: "bgp log-neighbor-changes\r\nbgp log-neighbor-changes\r\n ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nLeaf-15(config)#"
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/bgp_l2vpn_evpn_af.j2
+      value: bgp l2vpn evpn af block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/bgp_l2vpn_evpn_af.j2
+      value: bgp l2vpn evpn af block
+    module_stderr: "show running-config\r\nshow running-config\r\n  ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nLeaf-15(config)#"
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/vrf_definition.j2
+      value: vrf definition block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/vrf_definition.j2
+      value: vrf definition block
+    module_stderr: "show running-config\r\nshow running-config\r\n  ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nLeaf-15(config)#"
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/bgp_l2vpn_ipv46_per_vrf.j2
+      value: bgp per vrf block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/bgp_l2vpn_ipv46_per_vrf.j2
+      value: bgp per vrf block
+    module_stderr: "show running-config\r\nshow running-config\r\n  ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nLeaf-15(config)#"
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/vlan_create.j2
+      value: vlan block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/vlan_create.j2
+      value: vlan block
+    module_stderr: "show running-config\r\nshow running-config\r\n  ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nLeaf-15(config)#"
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/svi_create.j2
+      value: svi block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/svi_create.j2
+      value: svi block
+    module_stderr: "show running-config\r\nshow running-config\r\n  ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nLeaf-15(config)#"
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/l2vpn_evpn_global.j2
+      value: l2vpn evpn global block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/l2vpn_evpn_global.j2
+      value: l2vpn evpn global block
+    module_stderr: "show running-config\r\nshow running-config\r\n  ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nLeaf-15(config)#"
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/l2vpn_evpn_evi_create.j2
+      value: l2vpn evpn evi block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/l2vpn_evpn_evi_create.j2
+      value: l2vpn evpn evi block
+    module_stderr: "show running-config\r\nshow running-config\r\n  ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nLeaf-15(config)#"
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/evi_vni_vlan_stiching.j2
+      value: evi vni vlan stiching block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/evi_vni_vlan_stiching.j2
+      value: evi vni vlan stiching block
+    module_stderr: "show running-config\r\nshow running-config\r\n  ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nLeaf-15(config)#"
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/overlay_interfaces.j2
+      value: overlay interface block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/overlay_interfaces.j2
+      value: overlay interface block
+    module_stderr: "show running-config\r\nshow running-config\r\n  ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nLeaf-15(config)#"
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/nve_create.j2
+      value: nve block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/nve_create.j2
+      value: nve block
+    module_stderr: "show running-config\r\nshow running-config\r\n  ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nLeaf-15(config)#"
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+task name: Read template files for leaf devices
+
+host: Spine-03
+stderr:
+- One or more items failed
+- - _ansible_ignore_errors: null
+    _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/global_routing.j2
+      value: global routing block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: true
+    ansible_loop_var: item
+    changed: true
+    commands:
+    - ipv6 unicast-routing
+    failed: false
+    invocation:
+      module_args:
+        backup: false
+        backup_options: null
+        commit: null
+        commit_comment: null
+        config: " \n#jinja2: lstrip_blocks: \"True\", trim_blocks: \"True\"\n\n  \n        \n
+          \      \n            ipv6 unicast-routing\n    \n        \n        \n          \n"
+        defaults: false
+        diff_ignore_lines: null
+        diff_match: none
+        diff_replace: null
+        multiline_delimiter: null
+        replace: null
+        rollback: null
+    item:
+      key: ../templates/global_routing.j2
+      value: global routing block
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/bgp_global.j2
+      value: bgp global block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: true
+    ansible_loop_var: item
+    changed: false
+    exception: "  File \"/home/cisco/ansible/lib/python3.10/site-packages/ansible_collections/ansible/netcommon/plugins/modules/cli_config.py\",
+      line 439, in main\n    run(\n  File \"/home/cisco/ansible/lib/python3.10/site-packages/ansible_collections/ansible/netcommon/plugins/modules/cli_config.py\",
+      line 340, in run\n    connection.edit_config(**kwargs)\n  File \"/home/cisco/ansible/lib/python3.10/site-packages/ansible/module_utils/connection.py\",
+      line 200, in __rpc__\n    raise ConnectionError(to_text(msg, errors='surrogate_then_replace'),
+      code=code)\n"
+    failed: true
+    invocation:
+      module_args:
+        backup: false
+        backup_options: null
+        commit: null
+        commit_comment: null
+        config: " \n#jinja2: lstrip_blocks: \"True\", trim_blocks: \"True\"\n\n!\n  router
+          bgp 65001\n  \n            bgp log-neighbor-changes\n            bgp router-id 172.16.255.3\n
+          \     no bgp default ipv4-unicast\n  \n              \n            template peer-session
+          EVPN-PEER-SESSION\n          remote-as 65001\n          update-source Lo0\n  \n
+          \           template peer-policy LEAF-EVPN-PEER-POLICY\n          send-community
+          both\n  \n            template peer-policy SPINE-EVPN-PEER-POLICY\n          send-community
+          both\n          route-reflector-client\n  \n                      neighbor 172.16.255.14
+          inherit peer-session EVPN-PEER-SESSION\n  \n                                    neighbor
+          172.16.255.15 inherit peer-session EVPN-PEER-SESSION\n  \n                                    neighbor
+          172.16.255.16 inherit peer-session EVPN-PEER-SESSION\n  \n                                    neighbor
+          172.16.255.17 inherit peer-session EVPN-PEER-SESSION\n  \n                                \n"
+        defaults: false
+        diff_ignore_lines: null
+        diff_match: none
+        diff_replace: null
+        multiline_delimiter: null
+        replace: null
+        rollback: null
+    item:
+      key: ../templates/bgp_global.j2
+      value: bgp global block
+    msg: "bgp log-neighbor-changes\r\nbgp log-neighbor-changes\r\n ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nSpine-03(config)#"
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/bgp_l2vpn_evpn_af.j2
+      value: bgp l2vpn evpn af block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/bgp_l2vpn_evpn_af.j2
+      value: bgp l2vpn evpn af block
+    module_stderr: "show running-config\r\nshow running-config\r\n  ^\r\n% Invalid input detected
+      at '^' marker.\r\n\r\nSpine-03(config)#"
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+task name: Read template files for spine devices
+

@@ -1,0 +1,43 @@
+{#
+This module is configuring MVPN AF for IPv4 and activates neighbors under AF 
+#}
+
+#jinja2: lstrip_blocks: "True", trim_blocks: "True"
+
+{% set action = action | default ('add') %}
+{% if action == 'add' %}
+    {% set prefix = '' %}
+{% endif %}
+
+{# Entering bgp process configuration #}
+
+{% if action == 'delete' %}
+    {% if mvpns is defined and mvpns != [] %}
+        !
+        router bgp {{ bgp.as_number }}
+        {% for mvpn in mvpns %}
+            !
+            no address-family {{ mvpn }}
+        {% endfor %}
+    {% endif %}
+
+{% else %}
+    {% if mvpns is defined and mvpns != [] %}
+        !
+        router bgp {{ bgp.as_number }}
+
+        {% for mvpn in mvpns %}
+            !
+            address-family {{ mvpn }} mvpn
+            {% for neighbor in bgp[mvpn+'_mvpn_neighbors'] %}
+                {{ prefix }} neighbor {{neighbor }} activate
+                {# configuration of RR-client if needed #}
+                {% if bgp.rrc is defined and bgp.rrc == 'true' %}
+                    {{ prefix }} neighbor {{ neighbor }} inherit peer-policy SPINE-EVPN-PEER-POLICY
+                {% else %}
+                    {{ prefix }} neighbor {{ neighbor }} inherit peer-policy LEAF-EVPN-PEER-POLICY
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+{% endif %}

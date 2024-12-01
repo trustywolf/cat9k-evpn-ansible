@@ -1,0 +1,22 @@
+# ipv6_incremental:
+# ==================
+#Please find below the examples of declaring the respective vrf's under dag where it is used as input file to playbook_overlay_incremental_ipv6_generate.py and playbook_overlay_incremental_ipv6_commit.py
+# 1) with single vrf under dag
+#      ..........................................
+#      .        dag:              .
+#      .          - green      ------------> add ipv6 to the green vrf                 .    .
+#      ..........................................
+# 2) with two vrf's under dag's
+#      ..........................................
+#      .        dag:              .
+#      .          - green      ------------> adds ipv6 to the blue and green vrfs                 .     .
+#      .          - blue                      .     .
+#      ..........................................
+# 3) with all vrf's under dag's
+#      ..........................................
+#      .        dag:              .
+#      .          - all        -------------> adds ipv6 to all the vrfs which are not provisoned           .     .
+#      ..........................................
+
+dag:
+   - all

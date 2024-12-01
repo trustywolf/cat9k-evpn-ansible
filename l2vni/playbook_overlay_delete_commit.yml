@@ -1,0 +1,87 @@
+---
+
+- name: Write l2vni delete info to files in host_vars/delete_vars folder
+  import_playbook: playbook_overlay_delete_generate.yml
+
+- name: Automated VXLAN deployment with BGP EVPN L2 underlay w/ Spine
+  hosts: leaf
+  gather_facts: no
+
+  vars:
+
+    block_dict:
+      '../templates/nve_create.j2': 'nve block'
+      '../templates/vlan_create.j2': 'vlan block' 
+      '../templates/l2vpn_evpn_evi_create.j2': 'l2vpn evpn evi block'
+
+  tasks:
+
+        - block:
+
+          - name: Set playbook name and mode
+            set_fact:
+              playbook_name: "overlay"
+              playbook_mode: "-del"
+
+          - name: Load variables from group_vars/delete_vars.yml file
+            run_once: true
+            include_vars: group_vars/delete_vars.yml
+          
+          - name: Load variables from files under group_vars/underlay_config.yml folder
+            run_once: true
+            include_vars: 
+              file: group_vars/underlay_config.yml
+
+          - name: Set "update_access_intf" value if absent
+            run_once: true
+            block:
+            - name: Set "update_access_intf" value if absent
+              when: update_access_intf is not defined
+              set_fact:
+                update_access_intf: false
+ 
+          - name: Check whether host_vars/delete_vars/<hostname>.yml is present
+            local_action: stat path=./host_vars/delete_vars/{{ inventory_hostname }}.yml
+            register: file_state
+            become: no 
+
+          - name: Execute tasks if host_vars/delete_vars/<hostname>.yml is present
+            when: file_state.stat.exists
+            block:
+            - name: Load variables from files under host_vars/delete_vars folder
+              include_vars: host_vars/delete_vars/{{inventory_hostname}}.yml
+
+            - name: Apply overlay configurations
+              cli_config:
+                config: "{{ lookup('template', item.key) }}"
+                diff_match: none
+              register: result
+              with_dict: "{{ block_dict }}"
+               
+            - name: Apply configurations on access interfaces
+              when: update_access_intf == true
+              cli_config:
+                config: "{{ lookup('template', '../templates/access_interfaces.j2' ) }}"
+                diff_match: none
+              register: result
+
+            - name: Pause for 30 seconds for convergence  
+              wait_for:
+                delay: 30
+                timeout: 0
+
+          rescue:
+            - name: Record failure
+              include_tasks: ../subtasks/common_subtasks/subtask_rescue_task.yml
+
+
+- name: Display output file info
+  hosts: localhost
+  gather_facts: no
+  run_once: True
+
+  tasks:
+    - debug:
+        msg: 
+        - "Please refer the following folders/files"
+        - "'overlay-del-err.log' in 'log_directory' folder for error informations if any"

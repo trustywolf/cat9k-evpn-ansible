@@ -1,0 +1,46 @@
+ 
+Playbook: playbook_underlay_commit.yml 
+Run time: 80.0 seconds 
+PLAY RECAP *********************************************************************
+Leaf-14                    : ok=12   changed=1    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+Leaf-15                    : ok=5    changed=1    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+Leaf-16                    : ok=5    changed=1    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+Leaf-17                    : ok=5    changed=1    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+Spine-03                   : ok=5    changed=1    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+Spine-04                   : ok=5    changed=1    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+ 
+Playbook: playbook_overlay_commit.yml 
+Run time: 76.0 seconds 
+PLAY RECAP *********************************************************************
+Leaf-14                    : ok=15   changed=1    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+Leaf-15                    : ok=7    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+Leaf-16                    : ok=7    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+Leaf-17                    : ok=7    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+Spine-03                   : ok=7    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+Spine-04                   : ok=7    changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+ 
+Playbook: playbook_access_add_commit.yml 
+Run time: 42.0 seconds 
+PLAY RECAP *********************************************************************
+Leaf-14                    : ok=28   changed=4    unreachable=0    failed=0    skipped=17   rescued=0    ignored=0   
+Leaf-15                    : ok=22   changed=4    unreachable=0    failed=0    skipped=14   rescued=0    ignored=0   
+Leaf-16                    : ok=22   changed=4    unreachable=0    failed=0    skipped=14   rescued=0    ignored=0   
+Leaf-17                    : ok=22   changed=4    unreachable=0    failed=0    skipped=14   rescued=0    ignored=0   
+localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+ 
+Playbook: playbook_dhcp_commit.yml 
+Run time: 32.0 seconds 
+PLAY RECAP *********************************************************************
+Leaf-14                    : ok=24   changed=1    unreachable=0    failed=0    skipped=15   rescued=0    ignored=0   
+Leaf-15                    : ok=6    changed=1    unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+Leaf-16                    : ok=6    changed=1    unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+Leaf-17                    : ok=6    changed=1    unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+localhost                  : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+
+Total run time: 230 seconds

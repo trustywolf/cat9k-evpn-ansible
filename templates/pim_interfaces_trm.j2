@@ -1,0 +1,29 @@
+{#
+This module enable/disable PIM on the interfaces for incremetal TRM add/delete
+#}
+
+#jinja2: lstrip_blocks: "True", trim_blocks: "True"
+
+{% set action = action | default ('add') %}
+{% if action == 'delete' %}
+    {% set prefix = 'no' %}
+    {% set pim_rp_loopbacks = rp_loopbacks | default ([]) %}
+{% elif action == 'add' %}
+    {% set prefix = '' %}
+{% endif %}
+
+{% if svis is defined %}
+    {% for svi in svis %}
+        !
+        interface Vlan{{svi}}
+            {{ prefix }} ip pim sparse-mode
+    {% endfor %}
+{% endif %}
+
+{% if pim_rp_loopbacks is defined %}
+    {% for rp_lpbk in pim_rp_loopbacks %}
+        !
+        interface {{rp_lpbk}}
+            {{ prefix }} ip pim sparse-mode
+    {% endfor %}
+{% endif %}

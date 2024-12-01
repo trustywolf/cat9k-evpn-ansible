@@ -1,0 +1,508 @@
+"-   - '  show run'
+    -   - Building configuration...
+        - ''
+        - 'Current configuration : 10591 bytes'
+        - '!'
+        - '! Last configuration change at 01:14:19 UTC Thu Aug 17 2023 by cisco'
+        - '!'
+        - version 17.13
+        - service timestamps debug datetime msec
+        - service timestamps log datetime msec
+        - platform punt-keepalive disable-kernel-core
+        - '!'
+        - hostname Spine-04
+        - '!'
+        - '!'
+        - vrf definition Mgmt-vrf
+        - ' !'
+        - ' address-family ipv4'
+        - ' exit-address-family'
+        - ' !'
+        - ' address-family ipv6'
+        - ' exit-address-family'
+        - '!'
+        - no logging console
+        - no aaa new-model
+        - switch 1 provision c9kv-uadp-8p
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - ip routing
+        - '!'
+        - 'ip multicast-routing '
+        - no ip domain lookup
+        - ip domain name virl.info
+        - '!'
+        - '!'
+        - '!'
+        - login on-success log
+        - ipv6 unicast-routing
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - crypto pki trustpoint SLA-TrustPoint
+        - ' enrollment pkcs12'
+        - ' revocation-check crl'
+        - ' hash sha256'
+        - '!'
+        - crypto pki trustpoint TP-self-signed-436098983
+        - ' enrollment selfsigned'
+        - ' subject-name cn=IOS-Self-Signed-Certificate-436098983'
+        - ' revocation-check none'
+        - ' rsakeypair TP-self-signed-436098983'
+        - ' hash sha256'
+        - '!'
+        - '!'
+        - crypto pki certificate chain SLA-TrustPoint
+        - ' certificate ca 01'
+        - '  30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030 '
+        - '  32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363 '
+        - '  6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934 '
+        - '  3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305 '
+        - '  43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720 '
+        - '  526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 '
+        - '  82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D '
+        - '  CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520 '
+        - '  1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE '
+        - '  4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC '
+        - '  7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188 '
+        - '  68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7 '
+        - '  C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191 '
+        - '  C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44 '
+        - '  DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201 '
+        - '  06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85 '
+        - '  4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500 '
+        - '  03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905 '
+        - '  604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B '
+        - '  D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8 '
+        - '  467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C '
+        - '  7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B '
+        - '  5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678 '
+        - '  80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB '
+        - '  418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0 '
+        - '  D697DF7F 28'
+        - "  \tquit"
+        - crypto pki certificate chain TP-self-signed-436098983
+        - ' certificate self-signed 01'
+        - '  3082032E 30820216 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030 '
+        - '  30312E30 2C060355 04030C25 494F532D 53656C66 2D536967 6E65642D 43657274 '
+        - '  69666963 6174652D 34333630 39383938 33301E17 0D323330 38313632 33313931 '
+        - '  335A170D 33333038 31353233 31393133 5A303031 2E302C06 03550403 0C25494F '
+        - '  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3433 36303938 '
+        - '  39383330 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 82010A02 '
+        - '  82010100 A9052AD2 E6810F80 B516A754 4A66D763 BB4A38D7 B892CAD2 9436E87F '
+        - '  DEFEAA1E E0AE4EED D74734D1 6032FB6D 2701CF98 6769A96A 8516F54B 3AB1ED42 '
+        - '  EF764B2E B50C2CC8 8D5BC920 1B4C35B7 7A4C456D C73B7EAD 8096F0BE CA016F94 '
+        - '  16EF9575 AE129DAA E096712C F05B5C45 599393D9 EA9D3A8C 5DA0E5B4 BE227520 '
+        - '  1E1053D4 1EC00C30 FF2546E1 875BD881 1AF6976B 859F9D10 18D4D903 42D15719 '
+        - '  1865F172 A509F1E1 B63FBCB5 BB17F14B 98A3F7F2 67208FA9 67A2F9DC 9D7A8244 '
+        - '  D4E96FEF 07C76E90 8DDA2B4C B30959F3 A1FB35F6 AAD7DC7B 34A0BB75 755FD60F '
+        - '  F7135988 7F325954 EDF8671F 78A6ADC2 E14AB661 53AF6CEA FD522855 E4E513DF '
+        - '  386F20E9 02030100 01A35330 51301D06 03551D0E 04160414 113F8302 13F172F9 '
+        - '  82045230 B147121A D2BACB92 301F0603 551D2304 18301680 14113F83 0213F172 '
+        - '  F9820452 30B14712 1AD2BACB 92300F06 03551D13 0101FF04 05300301 01FF300D '
+        - '  06092A86 4886F70D 01010B05 00038201 010005B2 C2035753 C1630213 C60E7805 '
+        - '  9D540EA9 6EE683D0 CAA45D3E 5036E3AC C282D21B 7E10A3D1 FF8237CC 2081A01C '
+        - '  E43394AE EB419A41 C1AD0ED8 23EE5863 2690747C BAD9950A E42C8B2D 69037A26 '
+        - '  06BA05F8 D6F1656D 8EBA5C81 F418098A 12928803 AF60FB40 35F50C6C C1A4A170 '
+        - '  9FAB6005 84D357B8 C35861ED 94B5F915 93B23D19 E47B8481 1B64829C 9C82F85C '
+        - '  CC914865 3FF59BFD 29302C6A C96D5C45 2FDFB225 7980EEA6 CD400084 BDD44048 '
+        - '  1A38437C 5A7A77CF 1F026A66 CD6A6C6F CB06D691 B553D0F6 11CA936B 43F72366 '
+        - '  9789804F AFB4D7AD 97225E72 BCE853F6 2DD638A3 C82725D4 565F64A7 A732D0A1 '
+        - '  826A3F0B 87DDD773 F2F4F98B AB61DC6A D24E'
+        - "  \tquit"
+        - '!'
+        - '!'
+        - license boot level network-advantage
+        - memory free low-watermark processor 74729
+        - '!'
+        - diagnostic bootup level minimal
+        - '!'
+        - spanning-tree mode rapid-pvst
+        - spanning-tree extend system-id
+        - '!'
+        - '!'
+        - enable password cisco
+        - '!'
+        - username cisco privilege 15 secret 9 $9$EadlUcwQt1LMk.$Fm7XKh2H.sOZJNIMfmGSbblQDG3.6Qroai0PhHuh4Gk
+        - '!'
+        - redundancy
+        - ' mode sso'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - no cdp run
+        - '!'
+        - '!'
+        - class-map match-any system-cpp-police-topology-control
+        - '  description Topology control'
+        - class-map match-any system-cpp-police-sw-forward
+        - '  description Sw forwarding, L2 LVX data, LOGGING'
+        - class-map match-any system-cpp-default
+        - '  description EWLC control, EWLC data, Inter FED '
+        - class-map match-any system-cpp-police-sys-data
+        - '  description Learning cache ovfl, High Rate App, Exception, EGR Exception,
+            NFL SAMPLED DATA, RPF Failed'
+        - class-map match-any system-cpp-police-punt-webauth
+        - '  description Punt Webauth'
+        - class-map match-any system-cpp-police-l2lvx-control
+        - '  description L2 LVX control packets'
+        - class-map match-any system-cpp-police-forus
+        - '  description Forus Address resolution and Forus traffic'
+        - class-map match-any system-cpp-police-multicast-end-station
+        - '  description MCAST END STATION'
+        - class-map match-any system-cpp-police-multicast
+        - '  description Transit Traffic and MCAST Data'
+        - class-map match-any system-cpp-police-l2-control
+        - '  description L2 control'
+        - class-map match-any system-cpp-police-dot1x-auth
+        - '  description DOT1X Auth'
+        - class-map match-any system-cpp-police-data
+        - '  description ICMP redirect, ICMP_GEN and BROADCAST'
+        - class-map match-any system-cpp-police-stackwise-virt-control
+        - '  description Stackwise Virtual'
+        - class-map match-any non-client-nrt-class
+        - class-map match-any system-cpp-police-routing-control
+        - '  description Routing control and Low Latency'
+        - class-map match-any system-cpp-police-protocol-snooping
+        - '  description Protocol snooping'
+        - class-map match-any system-cpp-police-dhcp-snooping
+        - '  description DHCP snooping'
+        - class-map match-any system-cpp-police-system-critical
+        - '  description System Critical and Gold Pkt'
+        - '!'
+        - policy-map system-cpp-policy
+        - '!'
+        - '! '
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - interface Loopback0
+        - ' description Routing Loopback'
+        - ' ip address 172.16.255.4 255.255.255.255'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface Loopback1
+        - ' description MSDP Loopback'
+        - ' ip address 172.16.254.4 255.255.255.255'
+        - ' ip pim sparse-mode'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface Loopback2
+        - ' description AnycastRP Loopback'
+        - ' ip address 172.16.255.255 255.255.255.255'
+        - ' ip pim sparse-mode'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface GigabitEthernet0/0
+        - ' description to port3.unmanaged-switch'
+        - ' vrf forwarding Mgmt-vrf'
+        - ' ip address 198.18.1.14 255.255.255.0'
+        - ' negotiation auto'
+        - '!'
+        - interface GigabitEthernet1/0/1
+        - ' description Backbone interface to Leaf-04'
+        - ' no switchport'
+        - ' ip address 172.16.24.4 255.255.255.0'
+        - ' ip pim sparse-mode'
+        - ' ip ospf network point-to-point'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface GigabitEthernet1/0/2
+        - ' description Backbone interface to Leaf-05'
+        - ' no switchport'
+        - ' ip address 172.16.25.4 255.255.255.0'
+        - ' ip pim sparse-mode'
+        - ' ip ospf network point-to-point'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface GigabitEthernet1/0/3
+        - ' description Backbone interface to Leaf-06'
+        - ' no switchport'
+        - ' ip address 172.16.26.4 255.255.255.0'
+        - ' ip pim sparse-mode'
+        - ' ip ospf network point-to-point'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface GigabitEthernet1/0/4
+        - ' description Backbone interface to Leaf-07'
+        - ' no switchport'
+        - ' ip address 172.16.27.4 255.255.255.0'
+        - ' ip pim sparse-mode'
+        - ' ip ospf network point-to-point'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface GigabitEthernet1/0/5
+        - ' description to GigabitEthernet1/0/2.c9k-0'
+        - '!'
+        - interface GigabitEthernet1/0/6
+        - ' description to GigabitEthernet1/0/2.c9k-1'
+        - '!'
+        - interface GigabitEthernet1/0/7
+        - ' description not connected'
+        - ' shutdown'
+        - '!'
+        - interface GigabitEthernet1/0/8
+        - ' description not connected'
+        - ' shutdown'
+        - '!'
+        - interface GigabitEthernet1/0/9
+        - '!'
+        - interface Vlan1
+        - ' no ip address'
+        - '!'
+        - router ospf 1
+        - ' router-id 172.16.255.4'
+        - '!'
+        - router bgp 65001
+        - ' template peer-policy LEAF-EVPN-PEER-POLICY'
+        - '  send-community both'
+        - ' exit-peer-policy'
+        - ' !'
+        - ' template peer-policy SPINE-EVPN-PEER-POLICY'
+        - '  route-reflector-client'
+        - '  send-community both'
+        - ' exit-peer-policy'
+        - ' !'
+        - ' template peer-session EVPN-PEER-SESSION'
+        - '  remote-as 65001'
+        - '  update-source Loopback0'
+        - ' exit-peer-session'
+        - ' !'
+        - ' bgp router-id 172.16.255.4'
+        - ' bgp log-neighbor-changes'
+        - ' no bgp default ipv4-unicast'
+        - ' neighbor 172.16.255.14 inherit peer-session EVPN-PEER-SESSION'
+        - ' neighbor 172.16.255.15 inherit peer-session EVPN-PEER-SESSION'
+        - ' neighbor 172.16.255.16 inherit peer-session EVPN-PEER-SESSION'
+        - ' neighbor 172.16.255.17 inherit peer-session EVPN-PEER-SESSION'
+        - ' !'
+        - ' address-family ipv4'
+        - ' exit-address-family'
+        - ' !'
+        - ' address-family l2vpn evpn'
+        - '  neighbor 172.16.255.14 activate'
+        - '  neighbor 172.16.255.14 send-community extended'
+        - '  neighbor 172.16.255.14 inherit peer-policy SPINE-EVPN-PEER-POLICY'
+        - '  neighbor 172.16.255.15 activate'
+        - '  neighbor 172.16.255.15 send-community extended'
+        - '  neighbor 172.16.255.15 inherit peer-policy SPINE-EVPN-PEER-POLICY'
+        - '  neighbor 172.16.255.16 activate'
+        - '  neighbor 172.16.255.16 send-community extended'
+        - '  neighbor 172.16.255.16 inherit peer-policy SPINE-EVPN-PEER-POLICY'
+        - '  neighbor 172.16.255.17 activate'
+        - '  neighbor 172.16.255.17 send-community extended'
+        - '  neighbor 172.16.255.17 inherit peer-policy SPINE-EVPN-PEER-POLICY'
+        - ' exit-address-family'
+        - '!'
+        - ip forward-protocol nd
+        - ip tcp mss 1280
+        - ip tcp window-size 212000
+        - ip http server
+        - ip http authentication local
+        - ip http secure-server
+        - ip pim rp-address 172.16.255.255
+        - ip msdp peer 172.16.254.3 connect-source Loopback1 remote-as 65001
+        - ip msdp cache-sa-state
+        - ip route vrf Mgmt-vrf 0.0.0.0 0.0.0.0 198.18.1.1
+        - ip ssh bulk-mode 131072
+        - ip ssh server algorithm authentication password
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - control-plane
+        - ' service-policy input system-cpp-policy'
+        - '!'
+        - '!'
+        - '!'
+        - line con 0
+        - ' exec-timeout 0 0'
+        - ' password cisco'
+        - ' stopbits 1'
+        - line vty 0 4
+        - ' exec-timeout 0 0'
+        - ' password cisco'
+        - ' login local'
+        - ' transport input telnet ssh'
+        - line vty 5 15
+        - ' login'
+        - ' transport input ssh'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - end
+-   - '  show ip ospf neighbor'
+    -   - Neighbor ID     Pri   State           Dead Time   Address         Interface
+        - 172.16.255.15     0   FULL/  -        00:00:37    172.16.25.15    GigabitEthernet1/0/2
+        - 172.16.255.14     0   FULL/  -        00:00:39    172.16.24.14    GigabitEthernet1/0/1
+-   - '  show bgp l2vpn evpn summary'
+    -   - BGP router identifier 172.16.255.4, local AS number 65001
+        - BGP table version is 26, main routing table version 26
+        - 25 network entries using 9600 bytes of memory
+        - 25 path entries using 5800 bytes of memory
+        - 16/16 BGP path/bestpath attribute entries using 4736 bytes of memory
+        - 15 BGP extended community entries using 720 bytes of memory
+        - 0 BGP route-map cache entries using 0 bytes of memory
+        - 0 BGP filter-list cache entries using 0 bytes of memory
+        - BGP using 20856 total bytes of memory
+        - BGP activity 25/0 prefixes, 25/0 paths, scan interval 60 secs
+        - 25 networks peaked at 01:15:43 Aug 17 2023 UTC (00:00:51.013 ago)
+        - ''
+        - Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+        - 172.16.255.14   4        65001      24      28       26    0    0 00:02:05       23
+        - 172.16.255.15   4        65001      12      28       26    0    0 00:02:04        2
+        - 172.16.255.16   4        65001       0       0        1    0    0 never    Idle
+        - 172.16.255.17   4        65001       0       0        1    0    0 never    Idle
+-   - '  show bgp l2vpn evpn'
+    -   - BGP table version is 26, local router ID is 172.16.255.4
+        - 'Status codes: s suppressed, d damped, h history, * valid, > best, i - internal, '
+        - '              r RIB-failure, S Stale, m multipath, b backup-path, f RT-Filter, '
+        - '              x best-external, a additional-path, c RIB-compressed, '
+        - '              t secondary path, L long-lived-stale,'
+        - 'Origin codes: i - IGP, e - EGP, ? - incomplete'
+        - 'RPKI validation codes: V valid, I invalid, N Not found'
+        - ''
+        - '     Network          Next Hop            Metric LocPrf Weight Path'
+        - 'Route Distinguisher: 172.16.254.14:101'
+        - ' *>i  [2][172.16.254.14:101][0][48][5254000718FB][0][*]/20'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:101][0][48][525400172714][32][10.1.101.1]/24'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:101][0][48][525400172714][128][2001:101::1]/36'
+        - '                      172.16.254.14            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.14:102'
+        - ' *>i  [2][172.16.254.14:102][0][48][5254000718FB][0][*]/20'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:102][0][48][525400172720][32][10.1.102.1]/24'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:102][0][48][525400172720][128][2001:102::1]/36'
+        - '                      172.16.254.14            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.14:201'
+        - ' *>i  [2][172.16.254.14:201][0][48][5254000718FB][0][*]/20'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:201][0][48][52540017271F][32][10.1.201.1]/24'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:201][0][48][52540017271F][128][2001:201::1]/36'
+        - '                      172.16.254.14            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.14:202'
+        - ' *>i  [2][172.16.254.14:202][0][48][525400172715][32][10.1.202.1]/24'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:202][0][48][525400172715][128][2001:202::1]/36'
+        - '                      172.16.254.14            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.14:102'
+        - ' *>i  [3][172.16.254.14:102][0][32][172.16.254.14]/17'
+        - '                      172.16.254.14            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.14:202'
+        - ' *>i  [3][172.16.254.14:202][0][32][172.16.254.14]/17'
+        - '                      172.16.254.14            0    100      0 ?'
+        - 'Route Distinguisher: 1:1'
+        - ' *>i  [5][1:1][0][24][10.1.101.0]/17'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [5][1:1][0][24][10.1.102.0]/17'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [5][1:1][0][24][10.14.11.0]/17'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [5][1:1][0][24][10.15.11.0]/17'
+        - '                      172.16.254.15            0    100      0 ?'
+        - ' *>i  [5][1:1][0][64][2001:101::]/29'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [5][1:1][0][64][2001:102::]/29'
+        - '                      172.16.254.14            0    100      0 ?'
+        - 'Route Distinguisher: 2:2'
+        - ' *>i  [5][2:2][0][24][10.1.201.0]/17'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [5][2:2][0][24][10.1.202.0]/17'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [5][2:2][0][24][10.14.12.0]/17'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [5][2:2][0][24][10.15.12.0]/17'
+        - '                      172.16.254.15            0    100      0 ?'
+        - ' *>i  [5][2:2][0][64][2001:201::]/29'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [5][2:2][0][64][2001:202::]/29'
+        - '                      172.16.254.14            0    100      0 ?'
+-   - '  show ip pim neighbor'
+    -   - PIM Neighbor Table
+        - 'Mode: B - Bidir Capable, DR - Designated Router, N - Default DR Priority,'
+        - '      P - Proxy Capable, S - State Refresh Capable, G - GenID Capable,'
+        - '      L - DR Load-balancing Capable'
+        - Neighbor          Interface                Uptime/Expires    Ver   DR
+        - Address                                                            Prio/Mode
+        - 172.16.24.14      GigabitEthernet1/0/1     00:03:25/00:01:16 v2    1 / DR
+            S P G
+        - 172.16.25.15      GigabitEthernet1/0/2     00:03:19/00:01:23 v2    1 / DR
+            S P G
+-   - '  show ip pim rp map'
+    -   - PIM Group-to-RP Mappings
+        - ''
+        - 'Group(s): 224.0.0.0/4, Static'
+        - '    RP: 172.16.255.255 (?)'
+-   - '  show ip rpf 172.16.255.255'
+    -   - RPF information for ? (172.16.255.255)
+        - '  RPF interface: Loopback2'
+        - '  RPF neighbor: ? (172.16.255.255) - directly connected'
+        - '  RPF route/mask: 172.16.255.255/32'
+        - '  RPF type: multicast (connected)'
+        - '  Doing distance-preferred lookups across tables'
+        - '  RPF topology: ipv4 multicast base'
+-   - '  show ip msdp summary'
+    -   - MSDP Peer Status Summary
+        - Peer Address     AS    State    Uptime/  Reset SA    Peer Name
+        - '                                Downtime Count Count'
+        - 172.16.254.3     65001 Up       00:03:13 0     0     ?
+-   - '  show ip msdp sa-cache'
+    -   - MSDP Source-Active Cache - 0 entries
+-   - '  show ip mroute'
+    -   - IP Multicast Routing Table
+        - 'Flags: D - Dense, S - Sparse, B - Bidir Group, s - SSM Group, C - Connected,'
+        - '       L - Local, P - Pruned, R - RP-bit set, F - Register flag,'
+        - '       T - SPT-bit set, J - Join SPT, M - MSDP created entry, E - Extranet,'
+        - '       X - Proxy Join Timer Running, A - Candidate for MSDP Advertisement,'
+        - '       U - URD, I - Received Source Specific Host Report, '
+        - '       Z - Multicast Tunnel, z - MDT-data group sender, '
+        - '       Y - Joined MDT-data group, y - Sending to MDT-data group, '
+        - '       G - Received BGP C-Mroute, g - Sent BGP C-Mroute, '
+        - '       N - Received BGP Shared-Tree Prune, n - BGP C-Mroute suppressed, '
+        - '       Q - Received BGP S-A Route, q - Sent BGP S-A Route, '
+        - '       V - RD & Vector, v - Vector, p - PIM Joins on route, '
+        - '       x - VxLAN group, c - PFP-SA cache created entry, '
+        - '       * - determined by Assert, # - iif-starg configured on rpf intf, '
+        - '       e - encap-helper tunnel flag, l - LISP decap ref count contributor'
+        - 'Outgoing interface flags: H - Hardware switched, A - Assert winner, p -
+            PIM Join'
+        - '                          t - LISP transit group'
+        - ' Timers: Uptime/Expires'
+        - ' Interface state: Interface, Next-Hop or VCD, State/Mode'
+        - ''
+        - '(*, 224.0.1.40), 00:04:18/00:03:01, RP 172.16.255.255, flags: SJCL'
+        - '  Incoming interface: Null, RPF nbr 0.0.0.0'
+        - '  Outgoing interface list:'
+        - '    GigabitEthernet1/0/2, Forward/Sparse, 00:03:18/00:02:53, flags: '
+        - '    GigabitEthernet1/0/1, Forward/Sparse, 00:03:25/00:03:01, flags: '
+        - '    Loopback1, Forward/Sparse, 00:04:16/00:02:44, flags: '
+        - ''
+        - '(*, 225.0.0.101), 00:01:39/00:02:49, RP 172.16.255.255, flags: S'
+        - '  Incoming interface: Null, RPF nbr 0.0.0.0'
+        - '  Outgoing interface list:'
+        - '    GigabitEthernet1/0/1, Forward/Sparse, 00:01:39/00:02:49, flags:'
+"   

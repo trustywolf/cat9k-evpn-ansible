@@ -1,0 +1,144 @@
+host: Leaf-04
+stderr:
+- One or more items failed
+- - _ansible_ignore_errors: null
+    _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/hostname.j2
+      value: hostname block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: true
+    ansible_loop_var: item
+    changed: true
+    commands:
+    - hostname Leaf-04
+    failed: false
+    invocation:
+      module_args:
+        backup: false
+        backup_options: null
+        commit: null
+        commit_comment: null
+        config: "\n#jinja2: lstrip_blocks: \"True\", trim_blocks: \"True\"\n\n    hostname
+          Leaf-04\n"
+        defaults: false
+        diff_ignore_lines: null
+        diff_match: none
+        diff_replace: null
+        multiline_delimiter: null
+        replace: null
+        rollback: null
+    item:
+      key: ../templates/hostname.j2
+      value: hostname block
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/global_routing.j2
+      value: global routing block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: true
+    ansible_loop_var: item
+    changed: false
+    exception: "  File \"/home/cisco/ansible/lib/python3.10/site-packages/ansible_collections/ansible/netcommon/plugins/modules/cli_config.py\",
+      line 439, in main\n    run(\n  File \"/home/cisco/ansible/lib/python3.10/site-packages/ansible_collections/ansible/netcommon/plugins/modules/cli_config.py\",
+      line 340, in run\n    connection.edit_config(**kwargs)\n  File \"/home/cisco/ansible/lib/python3.10/site-packages/ansible/module_utils/connection.py\",
+      line 200, in __rpc__\n    raise ConnectionError(to_text(msg, errors='surrogate_then_replace'),
+      code=code)\n"
+    failed: true
+    invocation:
+      module_args:
+        backup: false
+        backup_options: null
+        commit: null
+        commit_comment: null
+        config: "\n#jinja2: lstrip_blocks: \"True\", trim_blocks: \"True\"\n\n  \n                ip
+          routing\n    \n       \n    \n        \n        \n          \n"
+        defaults: false
+        diff_ignore_lines: null
+        diff_match: none
+        diff_replace: null
+        multiline_delimiter: null
+        replace: null
+        rollback: null
+    item:
+      key: ../templates/global_routing.j2
+      value: global routing block
+    msg: 'command timeout triggered, timeout value is 30 secs.
+
+      See the timeout setting options in the Network Debug and Troubleshooting Guide.'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/pim_rp.j2
+      value: pim rp block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/pim_rp.j2
+      value: pim rp block
+    module_stderr: operation requires privilege escalation
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/underlay_interfaces.j2
+      value: underlay interface block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/underlay_interfaces.j2
+      value: underlay interface block
+    module_stderr: operation requires privilege escalation
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/ospf_interfaces.j2
+      value: ospf interface block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/ospf_interfaces.j2
+      value: ospf interface block
+    module_stderr: operation requires privilege escalation
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+  - _ansible_ignore_unreachable: null
+    _ansible_item_label:
+      key: ../templates/pim_interfaces.j2
+      value: pim interface block
+    _ansible_item_result: true
+    _ansible_no_log: null
+    _ansible_parsed: false
+    ansible_loop_var: item
+    changed: false
+    failed: true
+    item:
+      key: ../templates/pim_interfaces.j2
+      value: pim interface block
+    module_stderr: operation requires privilege escalation
+    module_stdout: ''
+    msg: 'MODULE FAILURE
+
+      See stdout/stderr for the exact error'
+task name: Read template files for leaf devices
+

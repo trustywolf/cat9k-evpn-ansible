@@ -1,0 +1,29 @@
+
+
+! dhcp block     
+!
+ip dhcp relay information option
+ip dhcp relay information option vpn
+ip dhcp compatibility suboption link-selection standard
+ip dhcp compatibility suboption server-override standard
+ip dhcp snooping
+!
+ip dhcp snooping vlan 102
+interface Vlan 102
+ip helper-address 192.168.103.100
+ip dhcp relay source-interface Loopback11
+!
+ip dhcp snooping vlan 101
+interface Vlan 101
+ip helper-address 192.168.103.100
+ip dhcp relay source-interface Loopback11
+!
+ip dhcp snooping vlan 201
+interface Vlan 201
+ip helper-address 192.168.103.100
+ip dhcp relay source-interface Loopback12
+!
+ip dhcp snooping vlan 202
+interface Vlan 202
+ip helper-address 192.168.103.100
+ip dhcp relay source-interface Loopback12

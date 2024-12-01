@@ -1,0 +1,14 @@
+all:
+  children:
+    leaf:
+      hosts:
+        Leaf-17:
+          ansible_host: 198.18.1.18
+
+    spine:
+      hosts:
+        Spine-03:
+          ansible_host: 198.18.1.13
+        Spine-04:
+          ansible_host: 198.18.1.14
+                                 

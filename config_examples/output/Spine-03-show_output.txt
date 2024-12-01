@@ -1,0 +1,614 @@
+"-   - '  show run'
+    -   - Building configuration...
+        - ''
+        - 'Current configuration : 10628 bytes'
+        - '!'
+        - '! Last configuration change at 22:58:26 UTC Tue Aug 22 2023 by cisco'
+        - '!'
+        - version 17.13
+        - service timestamps debug datetime msec
+        - service timestamps log datetime msec
+        - platform punt-keepalive disable-kernel-core
+        - '!'
+        - hostname Spine-03
+        - '!'
+        - '!'
+        - vrf definition Mgmt-vrf
+        - ' !'
+        - ' address-family ipv4'
+        - ' exit-address-family'
+        - ' !'
+        - ' address-family ipv6'
+        - ' exit-address-family'
+        - '!'
+        - no logging console
+        - no aaa new-model
+        - switch 1 provision c9kv-uadp-8p
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - ip routing
+        - '!'
+        - 'ip multicast-routing '
+        - no ip domain lookup
+        - ip domain name virl.info
+        - '!'
+        - '!'
+        - '!'
+        - login on-success log
+        - ipv6 unicast-routing
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - crypto pki trustpoint SLA-TrustPoint
+        - ' enrollment pkcs12'
+        - ' revocation-check crl'
+        - ' hash sha256'
+        - '!'
+        - crypto pki trustpoint TP-self-signed-436098983
+        - ' enrollment selfsigned'
+        - ' subject-name cn=IOS-Self-Signed-Certificate-436098983'
+        - ' revocation-check none'
+        - ' rsakeypair TP-self-signed-436098983'
+        - ' hash sha256'
+        - '!'
+        - '!'
+        - crypto pki certificate chain SLA-TrustPoint
+        - ' certificate ca 01'
+        - '  30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030 '
+        - '  32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363 '
+        - '  6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934 '
+        - '  3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305 '
+        - '  43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720 '
+        - '  526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 '
+        - '  82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D '
+        - '  CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520 '
+        - '  1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE '
+        - '  4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC '
+        - '  7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188 '
+        - '  68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7 '
+        - '  C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191 '
+        - '  C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44 '
+        - '  DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201 '
+        - '  06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85 '
+        - '  4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500 '
+        - '  03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905 '
+        - '  604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B '
+        - '  D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8 '
+        - '  467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C '
+        - '  7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B '
+        - '  5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678 '
+        - '  80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB '
+        - '  418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0 '
+        - '  D697DF7F 28'
+        - "  \tquit"
+        - crypto pki certificate chain TP-self-signed-436098983
+        - ' certificate self-signed 01'
+        - '  3082032E 30820216 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030 '
+        - '  30312E30 2C060355 04030C25 494F532D 53656C66 2D536967 6E65642D 43657274 '
+        - '  69666963 6174652D 34333630 39383938 33301E17 0D323330 38313730 30303330 '
+        - '  385A170D 33333038 31363030 30333038 5A303031 2E302C06 03550403 0C25494F '
+        - '  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3433 36303938 '
+        - '  39383330 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 82010A02 '
+        - '  82010100 900359AA DF94578E 00F63CE4 69B723AB 1248741A B66FE40C D1A1DE6D '
+        - '  3A38E0DD 22D5A09C 45DA56DD E074A2ED 5BA27F9F E0EDA79B 77ECFA0D ED7F7791 '
+        - '  F1442F6F 8FC26687 CE7B71A4 622BF77B 443A970A 80C5A956 5AF6C6FA F0ECD8FD '
+        - '  43E249FE 3EC3816F A1D53743 7600A69C 505E73AC 10B38ADF 37421679 34A0D2B4 '
+        - '  A2EAB3F8 543DA6E1 D5084B77 71271774 C50BE130 F0D381ED 1A744BD6 0C1C2ECF '
+        - '  1C7D07C5 1B62FB72 85C1133E 98E7B89C 9C5806D3 DBFCD441 CBD87134 3D5A5D38 '
+        - '  C7A15C53 F96415E1 6FC6EC6E DEE8971F 0380DF11 A23F2A30 C47B2B5F 438DC06F '
+        - '  FB6816F8 34DEB2FA 62319371 7CD5F55B 6D873B4F FD819AC6 EFD1077A 5C4160A8 '
+        - '  A332170F 02030100 01A35330 51301D06 03551D0E 04160414 915DBBB4 538E800E '
+        - '  515F1E1A 4F9A9E6B 5657F452 301F0603 551D2304 18301680 14915DBB B4538E80 '
+        - '  0E515F1E 1A4F9A9E 6B5657F4 52300F06 03551D13 0101FF04 05300301 01FF300D '
+        - '  06092A86 4886F70D 01010B05 00038201 0100086B 56CD74C4 5C0D1085 3CD09204 '
+        - '  AD3C59C2 5E06BDD2 2164C365 EC7E3863 5F897071 491E113A CE6E1484 42D4A701 '
+        - '  390A6786 EDEF1597 644ADF86 18E4DA03 E6552F79 EF676633 0566EC91 53D74E32 '
+        - '  8CF4ED3A E2A1CF9F 6B4CFCFF 72B62B1C 6C039EA1 BFBC59C6 7FB41722 59567674 '
+        - '  99FEB7AB F0DC8F0D BD5F9B2D AB9F0A70 8FB4D034 88310EC5 EC90FD11 26B2A7F5 '
+        - '  9E61E8E5 6E5BF69A 9C1DB9EC D1902A5C 4D3F3CC6 5CC6E293 2DB45CF8 AA88416B '
+        - '  16C3F774 6A1F9B37 2B43A859 15B9D698 D382DB4E 4B231343 38629EBD A682221E '
+        - '  74981658 D6BE8B27 712FF13C 0B6EBBB7 05D110C2 61AEA6CB 6EA4AFD7 523541DB '
+        - '  C10F54BA 45FC1481 A1956287 F13729E1 3BBF'
+        - "  \tquit"
+        - '!'
+        - '!'
+        - license boot level network-advantage
+        - memory free low-watermark processor 74729
+        - '!'
+        - diagnostic bootup level minimal
+        - '!'
+        - spanning-tree mode rapid-pvst
+        - spanning-tree extend system-id
+        - '!'
+        - '!'
+        - enable password cisco
+        - '!'
+        - username cisco privilege 15 secret 9 $9$EadlUcwQt1LMk.$Fm7XKh2H.sOZJNIMfmGSbblQDG3.6Qroai0PhHuh4Gk
+        - '!'
+        - redundancy
+        - ' mode sso'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - no cdp run
+        - '!'
+        - '!'
+        - class-map match-any system-cpp-police-topology-control
+        - '  description Topology control'
+        - class-map match-any system-cpp-police-sw-forward
+        - '  description Sw forwarding, L2 LVX data, LOGGING'
+        - class-map match-any system-cpp-default
+        - '  description EWLC control, EWLC data, Inter FED '
+        - class-map match-any system-cpp-police-sys-data
+        - '  description Learning cache ovfl, High Rate App, Exception, EGR Exception,
+            NFL SAMPLED DATA, RPF Failed'
+        - class-map match-any system-cpp-police-punt-webauth
+        - '  description Punt Webauth'
+        - class-map match-any system-cpp-police-l2lvx-control
+        - '  description L2 LVX control packets'
+        - class-map match-any system-cpp-police-forus
+        - '  description Forus Address resolution and Forus traffic'
+        - class-map match-any system-cpp-police-multicast-end-station
+        - '  description MCAST END STATION'
+        - class-map match-any system-cpp-police-multicast
+        - '  description Transit Traffic and MCAST Data'
+        - class-map match-any system-cpp-police-l2-control
+        - '  description L2 control'
+        - class-map match-any system-cpp-police-dot1x-auth
+        - '  description DOT1X Auth'
+        - class-map match-any system-cpp-police-data
+        - '  description ICMP redirect, ICMP_GEN and BROADCAST'
+        - class-map match-any system-cpp-police-stackwise-virt-control
+        - '  description Stackwise Virtual'
+        - class-map match-any non-client-nrt-class
+        - class-map match-any system-cpp-police-routing-control
+        - '  description Routing control and Low Latency'
+        - class-map match-any system-cpp-police-protocol-snooping
+        - '  description Protocol snooping'
+        - class-map match-any system-cpp-police-dhcp-snooping
+        - '  description DHCP snooping'
+        - class-map match-any system-cpp-police-system-critical
+        - '  description System Critical and Gold Pkt'
+        - '!'
+        - policy-map system-cpp-policy
+        - '!'
+        - '! '
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - interface Loopback0
+        - ' description Routing Loopback'
+        - ' ip address 172.16.255.3 255.255.255.255'
+        - ' ip pim sparse-mode'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface Loopback1
+        - ' description MSDP Loopback'
+        - ' ip address 172.16.254.3 255.255.255.255'
+        - ' ip pim sparse-mode'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface Loopback2
+        - ' description AnycastRP Loopback'
+        - ' ip address 172.16.255.255 255.255.255.255'
+        - ' ip pim sparse-mode'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface GigabitEthernet0/0
+        - ' description to port3.unmanaged-switch'
+        - ' vrf forwarding Mgmt-vrf'
+        - ' ip address 198.18.1.13 255.255.255.0'
+        - ' negotiation auto'
+        - '!'
+        - interface GigabitEthernet1/0/1
+        - ' description Backbone interface to Leaf-04'
+        - ' no switchport'
+        - ' ip address 172.16.14.3 255.255.255.0'
+        - ' ip pim sparse-mode'
+        - ' ip ospf network point-to-point'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface GigabitEthernet1/0/2
+        - ' description Backbone interface to Leaf-05'
+        - ' no switchport'
+        - ' ip address 172.16.15.3 255.255.255.0'
+        - ' ip pim sparse-mode'
+        - ' ip ospf network point-to-point'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface GigabitEthernet1/0/3
+        - ' description Backbone interface to Leaf-06'
+        - ' no switchport'
+        - ' ip address 172.16.16.3 255.255.255.0'
+        - ' ip pim sparse-mode'
+        - ' ip ospf network point-to-point'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface GigabitEthernet1/0/4
+        - ' description Backbone interface to Leaf-07'
+        - ' no switchport'
+        - ' ip address 172.16.17.3 255.255.255.0'
+        - ' ip pim sparse-mode'
+        - ' ip ospf network point-to-point'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface GigabitEthernet1/0/5
+        - '!'
+        - interface GigabitEthernet1/0/6
+        - '!'
+        - interface GigabitEthernet1/0/7
+        - ' description Backbone interface to Spine-04'
+        - ' no switchport'
+        - ' ip address 172.16.11.2 255.255.255.0'
+        - ' ip pim sparse-mode'
+        - ' ip ospf network point-to-point'
+        - ' ip ospf 1 area 0'
+        - '!'
+        - interface GigabitEthernet1/0/8
+        - '!'
+        - interface GigabitEthernet1/0/9
+        - '!'
+        - interface Vlan1
+        - ' no ip address'
+        - ' shutdown'
+        - '!'
+        - router ospf 1
+        - ' router-id 172.16.255.3'
+        - '!'
+        - router bgp 65001
+        - ' template peer-policy LEAF-EVPN-PEER-POLICY'
+        - '  send-community both'
+        - ' exit-peer-policy'
+        - ' !'
+        - ' template peer-policy SPINE-EVPN-PEER-POLICY'
+        - '  route-reflector-client'
+        - '  send-community both'
+        - ' exit-peer-policy'
+        - ' !'
+        - ' template peer-session EVPN-PEER-SESSION'
+        - '  remote-as 65001'
+        - '  update-source Loopback0'
+        - ' exit-peer-session'
+        - ' !'
+        - ' bgp router-id 172.16.255.3'
+        - ' bgp log-neighbor-changes'
+        - ' no bgp default ipv4-unicast'
+        - ' neighbor 172.16.255.14 inherit peer-session EVPN-PEER-SESSION'
+        - ' neighbor 172.16.255.15 inherit peer-session EVPN-PEER-SESSION'
+        - ' neighbor 172.16.255.16 inherit peer-session EVPN-PEER-SESSION'
+        - ' neighbor 172.16.255.17 inherit peer-session EVPN-PEER-SESSION'
+        - ' !'
+        - ' address-family ipv4'
+        - ' exit-address-family'
+        - ' !'
+        - ' address-family l2vpn evpn'
+        - '  neighbor 172.16.255.14 activate'
+        - '  neighbor 172.16.255.14 send-community extended'
+        - '  neighbor 172.16.255.14 inherit peer-policy SPINE-EVPN-PEER-POLICY'
+        - '  neighbor 172.16.255.15 activate'
+        - '  neighbor 172.16.255.15 send-community extended'
+        - '  neighbor 172.16.255.15 inherit peer-policy SPINE-EVPN-PEER-POLICY'
+        - '  neighbor 172.16.255.16 activate'
+        - '  neighbor 172.16.255.16 send-community extended'
+        - '  neighbor 172.16.255.16 inherit peer-policy SPINE-EVPN-PEER-POLICY'
+        - '  neighbor 172.16.255.17 activate'
+        - '  neighbor 172.16.255.17 send-community extended'
+        - '  neighbor 172.16.255.17 inherit peer-policy SPINE-EVPN-PEER-POLICY'
+        - ' exit-address-family'
+        - '!'
+        - ip forward-protocol nd
+        - ip tcp mss 1280
+        - ip tcp window-size 212000
+        - ip http server
+        - ip http authentication local
+        - ip http secure-server
+        - ip pim rp-address 172.16.255.255
+        - ip msdp peer 172.16.254.4 connect-source Loopback1 remote-as 65001
+        - ip msdp cache-sa-state
+        - ip route vrf Mgmt-vrf 0.0.0.0 0.0.0.0 198.18.1.1
+        - ip ssh bulk-mode 131072
+        - ip ssh server algorithm authentication password
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - control-plane
+        - ' service-policy input system-cpp-policy'
+        - '!'
+        - '!'
+        - '!'
+        - line con 0
+        - ' exec-timeout 0 0'
+        - ' password cisco'
+        - ' stopbits 1'
+        - line vty 0 4
+        - ' exec-timeout 0 0'
+        - ' password cisco'
+        - ' login local'
+        - ' transport input telnet ssh'
+        - line vty 5 15
+        - ' login'
+        - ' transport input ssh'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - '!'
+        - end
+-   - '  show ip ospf neighbor'
+    -   - Neighbor ID     Pri   State           Dead Time   Address         Interface
+        - 172.16.255.4      0   FULL/  -        00:00:37    172.16.11.3     GigabitEthernet1/0/7
+        - 172.16.255.17     0   FULL/  -        00:00:33    172.16.17.17    GigabitEthernet1/0/4
+        - 172.16.255.16     0   FULL/  -        00:00:38    172.16.16.16    GigabitEthernet1/0/3
+        - 172.16.255.15     0   FULL/  -        00:00:36    172.16.15.15    GigabitEthernet1/0/2
+        - 172.16.255.14     0   FULL/  -        00:00:30    172.16.14.14    GigabitEthernet1/0/1
+-   - '  show bgp l2vpn evpn summary'
+    -   - BGP router identifier 172.16.255.3, local AS number 65001
+        - BGP table version is 58, main routing table version 58
+        - 57 network entries using 21888 bytes of memory
+        - 81 path entries using 18792 bytes of memory
+        - 28/28 BGP path/bestpath attribute entries using 8288 bytes of memory
+        - 28 BGP extended community entries using 1440 bytes of memory
+        - 0 BGP route-map cache entries using 0 bytes of memory
+        - 0 BGP filter-list cache entries using 0 bytes of memory
+        - BGP using 50408 total bytes of memory
+        - BGP activity 57/0 prefixes, 81/0 paths, scan interval 60 secs
+        - 57 networks peaked at 23:01:25 Aug 22 2023 UTC (00:00:12.014 ago)
+        - ''
+        - Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+        - 172.16.255.14   4        65001      16      36       58    0    0 00:02:35       22
+        - 172.16.255.15   4        65001      14      36       58    0    0 00:02:34       22
+        - 172.16.255.16   4        65001      13      36       58    0    0 00:02:23       18
+        - 172.16.255.17   4        65001      11      36       58    0    0 00:02:11       19
+-   - '  show bgp l2vpn evpn'
+    -   - BGP table version is 58, local router ID is 172.16.255.3
+        - 'Status codes: s suppressed, d damped, h history, * valid, > best, i - internal, '
+        - '              r RIB-failure, S Stale, m multipath, b backup-path, f RT-Filter, '
+        - '              x best-external, a additional-path, c RIB-compressed, '
+        - '              t secondary path, L long-lived-stale,'
+        - 'Origin codes: i - IGP, e - EGP, ? - incomplete'
+        - 'RPKI validation codes: V valid, I invalid, N Not found'
+        - ''
+        - '     Network          Next Hop            Metric LocPrf Weight Path'
+        - 'Route Distinguisher: 172.16.254.14:101'
+        - ' *>i  [2][172.16.254.14:101][0][48][5254000718FB][0][*]/20'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:101][0][48][525400172714][32][10.1.101.1]/24'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:101][0][48][525400172714][128][2001:101::1]/36'
+        - '                      172.16.254.14            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.14:102'
+        - ' *>i  [2][172.16.254.14:102][0][48][5254000718FB][0][*]/20'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:102][0][48][525400172720][32][10.1.102.1]/24'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:102][0][48][525400172720][128][2001:102::1]/36'
+        - '                      172.16.254.14            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.14:201'
+        - ' *>i  [2][172.16.254.14:201][0][48][5254000718FB][0][*]/20'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:201][0][48][52540017271F][32][10.1.201.1]/24'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:201][0][48][52540017271F][128][2001:201::1]/36'
+        - '                      172.16.254.14            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.14:202'
+        - ' *>i  [2][172.16.254.14:202][0][48][5254000718FB][0][*]/20'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:202][0][48][525400172715][32][10.1.202.1]/24'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [2][172.16.254.14:202][0][48][525400172715][128][2001:202::1]/36'
+        - '                      172.16.254.14            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.15:101'
+        - ' *>i  [2][172.16.254.15:101][0][48][5254000B7FD6][0][*]/20'
+        - '                      172.16.254.15            0    100      0 ?'
+        - ' *>i  [2][172.16.254.15:101][0][48][5254001F65B7][32][10.1.101.1]/24'
+        - '                      172.16.254.15            0    100      0 ?'
+        - ' *>i  [2][172.16.254.15:101][0][48][5254001F65B7][128][2001:101::1]/36'
+        - '                      172.16.254.15            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.15:102'
+        - ' *>i  [2][172.16.254.15:102][0][48][5254000B7FD6][0][*]/20'
+        - '                      172.16.254.15            0    100      0 ?'
+        - ' *>i  [2][172.16.254.15:102][0][48][5254001F65C3][32][10.1.102.1]/24'
+        - '                      172.16.254.15            0    100      0 ?'
+        - ' *>i  [2][172.16.254.15:102][0][48][5254001F65C3][128][2001:102::1]/36'
+        - '                      172.16.254.15            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.15:201'
+        - ' *>i  [2][172.16.254.15:201][0][48][5254000B7FD6][0][*]/20'
+        - '                      172.16.254.15            0    100      0 ?'
+        - ' *>i  [2][172.16.254.15:201][0][48][5254001F65C2][32][10.1.201.1]/24'
+        - '                      172.16.254.15            0    100      0 ?'
+        - ' *>i  [2][172.16.254.15:201][0][48][5254001F65C2][128][2001:201::1]/36'
+        - '                      172.16.254.15            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.15:202'
+        - ' *>i  [2][172.16.254.15:202][0][48][5254000B7FD6][0][*]/20'
+        - '                      172.16.254.15            0    100      0 ?'
+        - ' *>i  [2][172.16.254.15:202][0][48][5254001F65B8][32][10.1.202.1]/24'
+        - '                      172.16.254.15            0    100      0 ?'
+        - ' *>i  [2][172.16.254.15:202][0][48][5254001F65B8][128][2001:202::1]/36'
+        - '                      172.16.254.15            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.16:101'
+        - ' *>i  [2][172.16.254.16:101][0][48][5254000FFAF2][32][10.1.101.1]/24'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' *>i  [2][172.16.254.16:101][0][48][5254000FFAF2][128][2001:101::1]/36'
+        - '                      172.16.254.16            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.16:102'
+        - ' *>i  [2][172.16.254.16:102][0][48][5254000FFAFE][32][10.1.102.1]/24'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' *>i  [2][172.16.254.16:102][0][48][5254000FFAFE][128][2001:102::1]/36'
+        - '                      172.16.254.16            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.16:201'
+        - ' *>i  [2][172.16.254.16:201][0][48][5254000FFAFD][32][10.1.201.1]/24'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' *>i  [2][172.16.254.16:201][0][48][5254000FFAFD][128][2001:201::1]/36'
+        - '                      172.16.254.16            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.16:202'
+        - ' *>i  [2][172.16.254.16:202][0][48][5254000FFAF3][32][10.1.202.1]/24'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' *>i  [2][172.16.254.16:202][0][48][5254000FFAF3][128][2001:202::1]/36'
+        - '                      172.16.254.16            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.17:101'
+        - ' *>i  [2][172.16.254.17:101][0][48][52540001CDB5][32][10.1.101.1]/24'
+        - '                      172.16.254.17            0    100      0 ?'
+        - ' *>i  [2][172.16.254.17:101][0][48][52540001CDB5][128][2001:101::1]/36'
+        - '                      172.16.254.17            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.17:102'
+        - ' *>i  [2][172.16.254.17:102][0][48][52540001CDC1][32][10.1.102.1]/24'
+        - '                      172.16.254.17            0    100      0 ?'
+        - ' *>i  [2][172.16.254.17:102][0][48][52540001CDC1][128][2001:102::1]/36'
+        - '                      172.16.254.17            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.17:201'
+        - ' *>i  [2][172.16.254.17:201][0][48][52540001CDC0][32][10.1.201.1]/24'
+        - '                      172.16.254.17            0    100      0 ?'
+        - ' *>i  [2][172.16.254.17:201][0][48][52540001CDC0][128][2001:201::1]/36'
+        - '                      172.16.254.17            0    100      0 ?'
+        - 'Route Distinguisher: 172.16.254.17:202'
+        - ' *>i  [2][172.16.254.17:202][0][48][52540001CDB6][32][10.1.202.1]/24'
+        - '                      172.16.254.17            0    100      0 ?'
+        - ' *>i  [2][172.16.254.17:202][0][48][52540001CDB6][128][2001:202::1]/36'
+        - '                      172.16.254.17            0    100      0 ?'
+        - 'Route Distinguisher: 1:1'
+        - ' * i  [5][1:1][0][24][10.1.101.0]/17'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' * i                   172.16.254.17            0    100      0 ?'
+        - ' * i                   172.16.254.15            0    100      0 ?'
+        - ' *>i                   172.16.254.14            0    100      0 ?'
+        - ' * i  [5][1:1][0][24][10.1.102.0]/17'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' * i                   172.16.254.17            0    100      0 ?'
+        - ' * i                   172.16.254.15            0    100      0 ?'
+        - ' *>i                   172.16.254.14            0    100      0 ?'
+        - ' *>i  [5][1:1][0][24][10.14.11.0]/17'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [5][1:1][0][24][10.15.11.0]/17'
+        - '                      172.16.254.15            0    100      0 ?'
+        - ' *>i  [5][1:1][0][24][10.16.11.0]/17'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' *>i  [5][1:1][0][24][10.17.11.0]/17'
+        - '                      172.16.254.17            0    100      0 ?'
+        - ' *>i  [5][1:1][0][24][192.168.103.0]/17'
+        - '                      172.16.254.17            0    100      0 ?'
+        - ' * i  [5][1:1][0][64][2001:101::]/29'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' * i                   172.16.254.17            0    100      0 ?'
+        - ' * i                   172.16.254.15            0    100      0 ?'
+        - ' *>i                   172.16.254.14            0    100      0 ?'
+        - ' * i  [5][1:1][0][64][2001:102::]/29'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' * i                   172.16.254.17            0    100      0 ?'
+        - ' * i                   172.16.254.15            0    100      0 ?'
+        - ' *>i                   172.16.254.14            0    100      0 ?'
+        - 'Route Distinguisher: 2:2'
+        - ' * i  [5][2:2][0][24][10.1.201.0]/17'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' * i                   172.16.254.17            0    100      0 ?'
+        - ' * i                   172.16.254.15            0    100      0 ?'
+        - ' *>i                   172.16.254.14            0    100      0 ?'
+        - ' * i  [5][2:2][0][24][10.1.202.0]/17'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' * i                   172.16.254.17            0    100      0 ?'
+        - ' * i                   172.16.254.15            0    100      0 ?'
+        - ' *>i                   172.16.254.14            0    100      0 ?'
+        - ' *>i  [5][2:2][0][24][10.14.12.0]/17'
+        - '                      172.16.254.14            0    100      0 ?'
+        - ' *>i  [5][2:2][0][24][10.15.12.0]/17'
+        - '                      172.16.254.15            0    100      0 ?'
+        - ' *>i  [5][2:2][0][24][10.16.12.0]/17'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' *>i  [5][2:2][0][24][10.17.12.0]/17'
+        - '                      172.16.254.17            0    100      0 ?'
+        - ' * i  [5][2:2][0][64][2001:201::]/29'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' * i                   172.16.254.17            0    100      0 ?'
+        - ' * i                   172.16.254.15            0    100      0 ?'
+        - ' *>i                   172.16.254.14            0    100      0 ?'
+        - ' * i  [5][2:2][0][64][2001:202::]/29'
+        - '                      172.16.254.16            0    100      0 ?'
+        - ' * i                   172.16.254.17            0    100      0 ?'
+        - ' * i                   172.16.254.15            0    100      0 ?'
+        - ' *>i                   172.16.254.14            0    100      0 ?'
+-   - '  show ip pim neighbor'
+    -   - PIM Neighbor Table
+        - 'Mode: B - Bidir Capable, DR - Designated Router, N - Default DR Priority,'
+        - '      P - Proxy Capable, S - State Refresh Capable, G - GenID Capable,'
+        - '      L - DR Load-balancing Capable'
+        - Neighbor          Interface                Uptime/Expires    Ver   DR
+        - Address                                                            Prio/Mode
+        - 172.16.14.14      GigabitEthernet1/0/1     00:02:39/00:01:32 v2    1 / DR
+            S P G
+        - 172.16.15.15      GigabitEthernet1/0/2     00:02:39/00:01:33 v2    1 / DR
+            S P G
+        - 172.16.16.16      GigabitEthernet1/0/3     00:02:38/00:01:34 v2    1 / DR
+            S P G
+        - 172.16.17.17      GigabitEthernet1/0/4     00:02:07/00:01:35 v2    1 / DR
+            S P G
+        - 172.16.11.3       GigabitEthernet1/0/7     00:02:16/00:01:26 v2    1 / DR
+            S P G
+-   - '  show ip pim rp map'
+    -   - PIM Group-to-RP Mappings
+        - ''
+        - 'Group(s): 224.0.0.0/4, Static'
+        - '    RP: 172.16.255.255 (?)'
+-   - '  show ip rpf 172.16.255.255'
+    -   - RPF information for ? (172.16.255.255)
+        - '  RPF interface: Loopback2'
+        - '  RPF neighbor: ? (172.16.255.255) - directly connected'
+        - '  RPF route/mask: 172.16.255.255/32'
+        - '  RPF type: multicast (connected)'
+        - '  Doing distance-preferred lookups across tables'
+        - '  RPF topology: ipv4 multicast base'
+-   - '  show ip msdp summary'
+    -   - MSDP Peer Status Summary
+        - Peer Address     AS    State    Uptime/  Reset SA    Peer Name
+        - '                                Downtime Count Count'
+        - 172.16.254.4     65001 Up       00:01:02 0     0     ?
+-   - '  show ip msdp sa-cache'
+    -   - MSDP Source-Active Cache - 0 entries
+-   - '  show ip mroute'
+    -   - IP Multicast Routing Table
+        - 'Flags: D - Dense, S - Sparse, B - Bidir Group, s - SSM Group, C - Connected,'
+        - '       L - Local, P - Pruned, R - RP-bit set, F - Register flag,'
+        - '       T - SPT-bit set, J - Join SPT, M - MSDP created entry, E - Extranet,'
+        - '       X - Proxy Join Timer Running, A - Candidate for MSDP Advertisement,'
+        - '       U - URD, I - Received Source Specific Host Report, '
+        - '       Z - Multicast Tunnel, z - MDT-data group sender, '
+        - '       Y - Joined MDT-data group, y - Sending to MDT-data group, '
+        - '       G - Received BGP C-Mroute, g - Sent BGP C-Mroute, '
+        - '       N - Received BGP Shared-Tree Prune, n - BGP C-Mroute suppressed, '
+        - '       Q - Received BGP S-A Route, q - Sent BGP S-A Route, '
+        - '       V - RD & Vector, v - Vector, p - PIM Joins on route, '
+        - '       x - VxLAN group, c - PFP-SA cache created entry, '
+        - '       * - determined by Assert, # - iif-starg configured on rpf intf, '
+        - '       e - encap-helper tunnel flag, l - LISP decap ref count contributor'
+        - 'Outgoing interface flags: H - Hardware switched, A - Assert winner, p -
+            PIM Join'
+        - '                          t - LISP transit group'
+        - ' Timers: Uptime/Expires'
+        - ' Interface state: Interface, Next-Hop or VCD, State/Mode'
+        - ''
+        - '(*, 224.0.1.40), 00:03:36/00:02:25, RP 172.16.255.255, flags: SJCL'
+        - '  Incoming interface: Null, RPF nbr 0.0.0.0'
+        - '  Outgoing interface list:'
+        - '    Loopback0, Forward/Sparse, 00:03:34/00:02:25, flags: '
+        - ''
+        - '(*, 225.0.0.101), 00:02:07/00:01:22, RP 172.16.255.255, flags: SP'
+        - '  Incoming interface: Null, RPF nbr 0.0.0.0'
+        - '  Outgoing interface list: Null'
+"   
